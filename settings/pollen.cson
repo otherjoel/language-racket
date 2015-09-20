@@ -1,0 +1,4 @@
+".source.pollen":
+  editor:
+    commentStart: "◊;"
+    softWrap: true
