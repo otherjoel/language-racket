@@ -101,7 +101,7 @@ repository:
           (?x)
           						(?<=(\\(|\\[)) # preceded by ( or \[
           						( do|or|and|else|quasiquote|begin|if|case|set!|
-          						  cond|let|unquote|define(-datatype)*|let\\*|unquote-splicing|delay|
+          						  cond|let|unquote|define\/contract|define(-datatype)*|let\\*|unquote-splicing|delay|
           						  letrec)
           						(?=(\\s|\\())
         '''
@@ -357,7 +357,7 @@ repository:
         begin: '''
           (?x)
           						(?<=\\()       # preceded by (
-          						(define)\\s+   # define
+          						(define\/contract|define)\\s+   # define
           						(\\()          # list of parameters
           						  ([[:alnum:]][[:alnum:]!$%&*+-./:<=>?@^_~]*)
           						  ((\\s+
@@ -437,7 +437,7 @@ repository:
         ]
       }
       {
-        begin: "(?<=\\()(define)\\s([[:alnum:]][[:alnum:]!$%&*+-./:<=>?@^_~]*)\\s*.*?"
+        begin: "(?<=\\()(define\/contract|define)\\s([[:alnum:]][[:alnum:]!$%&*+-./:<=>?@^_~]*)\\s*.*?"
         captures:
           "1":
             name: "keyword.control.racket"
